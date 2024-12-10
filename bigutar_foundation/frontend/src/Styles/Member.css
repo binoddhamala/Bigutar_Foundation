@@ -1,0 +1,99 @@
+
+
+
+.form-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Section Styles */
+.section {
+  margin-bottom: 20px;
+}
+
+.section legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Input and select fields */
+.section input,
+.section select,
+.section label {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+
+
+/* Error Message */
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+/* Responsive Design with Media Queries */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 15px;
+  }
+
+  .section input,
+  .section select,
+  .section label,
+  button {
+    padding: 10px;
+  }
+
+  .section legend {
+    font-size: 1.1rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 10px;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .section input,
+  .section select,
+  .section label,
+  button {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .section legend {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+}
