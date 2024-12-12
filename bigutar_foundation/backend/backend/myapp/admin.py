@@ -59,3 +59,11 @@ class GalleryAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
 
+from django.contrib import admin
+from .models import Member
+
+class MemberAdmin(admin.ModelAdmin):
+    list_display = ('serial_number', 'membership_number', 'name')
+    search_fields = ('name', 'membership_number')
+
+admin.site.register(Member, MemberAdmin)

@@ -45,6 +45,13 @@ class GallerySerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'items']
 
 
+from rest_framework import serializers
+from .models import Member
+
+class MemberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Member
+        fields = '__all__'
 
 
 

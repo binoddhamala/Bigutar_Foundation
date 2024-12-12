@@ -1,30 +1,5 @@
 import Layout from "../Components/Layout/Layout";
 import "../Styles/HomeStyles.css";
-
-/*import React from "react";
-import Layout from "./../Components/Layout/Layout";
-import { Link } from "react-router-dom";
-import "../Styles/HomeStyles.css";
-import home from "../Images/home.jpg";
-
-const Home = () => {
-  return (
-    <Layout>
-      <div className="home" style={{ backgroundImage: `url(${home})` }}>
-        <div className="headerContainer">
-          <h1>Welcome</h1>
-          <p>Bigutar Development Foundation Nepal</p>
-          <Link to="/about">
-            <button>ABOUT US</button>
-          </Link>
-        </div>
-      </div>
-    </Layout>
-  );
-};
-
-export default Home;*/
-
 export default function Home() {
   return (
     <Layout>
@@ -33,9 +8,8 @@ export default function Home() {
         <div className="hero--section--content">
           <p className="section--title">Welcome</p>
           <h1 className="hero--section--title">
-            <span className="hero--section-title--color">Bigutar</span>{" "}
-            <br />
-            Development Foundation Nepal
+            Bigutar  Development  Foundation Nepal
+           
           </h1>
           
         </div>

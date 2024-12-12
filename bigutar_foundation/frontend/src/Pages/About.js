@@ -60,36 +60,129 @@ const About = () => {
       </Box>
     </Layout>
   );
-};
+}; <div className="about--section--img">
+        <img src="./img/about.jpg" alt="About Me" />
+      </div>
 
 export default About;*/
 import Layout from "../Components/Layout/Layout";
 import "../Styles/About.css";
-export default function About() {
+import React from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+
+const About = () => {
+  const [galleryItems, setGalleryItems] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/team/')
+      .then(response => {
+        setGalleryItems(response.data);
+      })
+      .catch(error => {
+        console.error('There was an error fetching the gallery items!', error);
+      });
+  }, []);
+  const [members, setMembers] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/members/')
+    .then(response => {
+      setMembers(response.data);
+    })
+    .catch(error => {
+      console.error('There was an error fetching the member items!', error);
+    });
+}, []);
+  
   return (
     <Layout>
-    <section id="about" className="about--section">
-      <div className="about--section--img">
-        <img src="./img/about.jpg" alt="About Me" />
-      </div>
-      <div className="hero--section--content--box about--section--box">
-        <div className="hero--section--content">
-          <p className="section--title">About</p>
-          <h1 className="skills-section--heading">About Me</h1>
-          <p className="hero--section-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-            officiis sit debitis omnis harum sed veniam quasi dicta accusamus
-            recusandae? Voluptatem, reprehenderit alias? Eligendi aperiam
-            tempora numquam sint odit optio.
-          </p>
-          <p className="hero--section-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-            officiis sit debitis omnis harum sed veniam quasi dicta accusamus
-            recusandae?
-          </p>
+    <div className="about-us-container">
+      {/* About Us Section */}
+      <section className="about-us">
+        <h2>About Us</h2>
+        <p>
+          Welcome to our company! We are dedicated to providing exceptional services that empower businesses and individuals to reach their full potential.
+          With a passionate team and a customer-first approach, we strive for excellence in everything we do.
+        </p>
+        <p>
+          Our journey started with a vision to create impactful solutions, and over the years, we have established ourselves as a trusted name in the industry.
+        </p>
+      </section>
+
+      {/* Our Mission Section */}
+      <section className="our-mission">
+        <h2>Our Mission</h2>
+        <p>
+          Our mission is to deliver innovative solutions that drive success for our clients. We aim to foster growth and build long-term relationships based on trust and results.
+        </p>
+      </section>
+
+      {/* Vision and Values Section */}
+      <section className="vision-values">
+        <h2>Vision and Values</h2>
+        <p>
+          <strong>Vision:</strong> To be the global leader in providing top-notch solutions that inspire progress and change.
+        </p>
+        <p>
+          <strong>Values:</strong> Integrity, Innovation, Excellence, and Collaboration guide every aspect of our work.
+        </p>
+      </section>
+
+      {/* Our Services Section */}
+      <section className="our-services">
+        <h2>Our Services</h2>
+        <ul>
+          <li>Consulting and Strategy</li>
+          <li>Software Development</li>
+          <li>Data Analysis and Reporting</li>
+          <li>Customer Support and Training</li>
+        </ul>
+      </section>
+    </div>
+    <section>
+    <div className="gallery">
+      <h3>Current working Committee</h3>
+      {galleryItems.map(item => (
+        <div key={item.id} className="gallery-item">
+          <img src={item.image} />
+          <h2>{item.name}</h2>
+          <p>{item.post}</p>
         </div>
-      </div>
+      ))}
+    </div>
+    </section>
+    <section>
+    <div className="member-container">
+      <h3>Life Time Members</h3>
+      {members.length > 0 ? (
+        <table className="member-table">
+          <thead>
+            <tr>
+              <th>S.N</th>
+              <th>Membership No</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((member, index) => (
+              <tr key={index}>
+                <td>{member.serial_number}</td>
+                <td>{member.membership_number}</td>
+                <td>{member.name}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>No members found.</p>
+      )}
+    </div>
     </section>
     </Layout>
   );
-}
+};
+
+
+export default About;

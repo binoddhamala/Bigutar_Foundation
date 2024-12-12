@@ -1,133 +1,100 @@
-/*.home {
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    flex-direction: column;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  .headerContainer {
-    width: auto;
-    margin-left: 30px;
-  }
-  
-  .home .headerContainer h1 {
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 70px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    color: black;
-  }
-  
-  .home .headerContainer p {
-    margin-top: 15px;
-    padding: 0;
-    font-size: 40px;
-    font-weight: lighter;
-    color: black;
-  }
-  
-  .headerContainer button {
-    background-color: #121619;
-    margin-top: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 50px;
-    width: 180px;
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-  }
-  
-  .headerContainer button:hover {
-    background-color: #07090a;
-    cursor: pointer;
-    transition: 0.3s ease-in;
-  }*/
-  
-  /* mobile view  */
-  
-  /*@media only screen and (max-width: 600px) {
-    .home {
-      justify-content: center;
-      align-items: center;
-    }
-    .headerContainer {
-      margin-left: 0;
-      border-radius: 10px;
-      width: 90%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background-color: #121619;
-      color: white;
-    }
-    .home .headerContainer h1 {
-      font-size: 40px;
-      height: 30px;
-      margin: 30px 0px;
-      color: white;
-    }
-    .home .headerContainer p {
-      font-size: 30px;
-      color: white;
-    }
-    .headerContainer button {
-      background-color: white;
-      color: #121619;
-      margin-bottom: 30px;
-    }
-  }*/
+.hero--section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 133.333px 85.333px 133.333px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  background-color: var(--bg-shade);
+}
+.hero--section--content-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+.hero--section--content h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 21.333px;
+}
+.hero--section--content--box > button {
+  margin-top: 21.333px;
+}
+.hero--section--title {
+  color: var(--heading-color);
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 90px;
+  align-self: stretch;
+}
+.hero--section--title--color {
+  color: var(--primary);
+}
+.hero--section-description {
+  color: var(--darkblue);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+}
+.hero--section--img {
+  display: flex;
+}
+.hero--section--img > img {
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
   .hero--section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 133.333px 85.333px 133.333px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-    background-color: var(--bg-shade);
+    display: flex;
+    flex-direction: column;
+    padding: 50px 20px; /* Adjusted padding for mobile */
+    gap: 20px; /* Reduced gap between sections */
+    align-items: center; /* Center content horizontally */
   }
+
   .hero--section--content-box {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 32px;
+    align-items: center; /* Center-align content for mobile */
+    text-align: center;
+    width: 100%; /* Ensures content spans full width */
   }
-  .hero--section--content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 21.333px;
+
+  .hero--section--content h1 {
+    font-size: 32px; /* Smaller font size for mobile */
+    line-height: 48px;
   }
-  .hero--section--content--box > button {
-    margin-top: 21.333px;
+
+  .hero--section--content p {
+    font-size: 18px; /* Adjust font size for the <p> tag */
+    line-height: 28px;
+    color: var(--darkblue); /* Ensure the <p> section has readable color */
+    margin: 20px  210px; /* Add some spacing around the <p> */
   }
+
   .hero--section--title {
-    color: var(--heading-color);
-    font-size: 50px;
-    font-weight: 700;
-    line-height: 90px;
-    align-self: stretch;
+    font-size: 28px; /* Adjusted title font size */
+    line-height: 42px;
   }
-  .hero--section--title--color {
-    color: var(--primary);
+
+  .hero--section--content--box > button {
+    align-self: center; /* Center-align the button */
+    margin-top: 20px; /* Add margin on top of the button */
+    padding: 10px 20px; /* Adjust button padding */
+    font-size: 16px; /* Adjust button font size */
+    border-radius: 5px; /* Optional: Round button edges */
   }
-  .hero--section-description {
-    color: var(--darkblue);
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 36px;
-  }
+
   .hero--section--img {
-    display: flex;
+    order: -1; /* Moves the image above the button */
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
   }
+
   .hero--section--img > img {
     width: 100%;
-    height: 100%;
+    height: auto; /* Maintain aspect ratio */
   }
+}

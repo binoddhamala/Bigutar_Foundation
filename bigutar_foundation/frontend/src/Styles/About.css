@@ -1,51 +1,189 @@
-/*/* About Component Styling */
-/*.about-container {
-    margin: 15px auto;
-    padding: 20px;
-    max-width: 800px;
-    text-align: center;
+.about-us-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 20px;
+  color: #555;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .about-us-container {
+    padding: 10px;
   }
-  
-  .about-title {
-    font-weight: bold;
-    margin: 20px 0;
-    font-size: 2rem;
-    color: #333;
+
+  h2 {
+    font-size: 1.5rem;
   }
-  
-  .about-text {
-    text-align: justify;
-    line-height: 1.6;
+
+  p {
     font-size: 1rem;
-    color: #555;
-    margin-bottom: 15px;
   }
-  
-  /* Responsive adjustments for mobile */
- /* @media (max-width: 600px) {
-    .about-container {
-      padding: 10px;
-      margin-top: 0;
-    }
-  
-    .about-title {
-      font-size: 1.5rem;
-      margin: 15px 0;
-    }
-  
-    .about-text {
-      font-size: 0.9rem;
-    }
-  }*/
-  .about--section {
-    display: grid;
-    padding: 133.3px 85.3px;
-    align-items: center;
-    gap: 114.6px;
-    grid-template-columns: repeat(2, 1fr);
+
+  ul {
+    font-size: 1rem;
   }
-  .about--section--img > img {
-    width: 100%;
-    height: 100%;
+}
+
+/* Container for the gallery */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the gallery items horizontally */
+  gap: 20px; /* Space between gallery items */
+  padding: 20px; /* Padding around the gallery */
+  margin-top: 100px;
+}
+
+.gallery h3 {
+  font-size: 1rem; /* Adjust font size */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  width: 100%;
+  top: 80px; /* Adjust to align with the bottom of the navbar */
+  padding: 10px 0; /* Add padding for better spacing */
+}
+
+/* Style for each gallery item */
+.gallery-item {
+  position: relative; /* Make the container a positioned element */
+  border: 1px solid #ddd; /* Light border around each item */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden; /* Ensure image does not overflow the rounded corners */
+  width: 200px; /* Fixed width for consistency */
+  height: 300px; /* Fixed height for consistency */
+  text-align: center; /* Center text and image */
+  background-color: #fff; /* White background */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+/* Style for the item image */
+.gallery-item img {
+  width: 100%; /* Make image take up the full width of its container */
+  height: 100%; /* Make image take up the full height of its container */
+  object-fit: cover; /* Crop the image to fit without distortion */
+  display: block; /* Remove extra space below the image */
+}
+
+/* Hide the title and description by default */
+.gallery-item h2,
+.gallery-item p {
+  position: absolute;
+  left: 0;
+  right: 0;
+  opacity: 0; /* Make the text invisible */
+  visibility: hidden; /* Prevent interaction */
+  transform: translateY(10px); /* Slightly move text down for animation */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Center h2 vertically in the middle of the image */
+.gallery-item h2 {
+  bottom: 20%; /* Place title in the bottom half of the image */
+  transform: translateY(50%); /* Center the title vertically in the bottom half */
+  font-size: 1.2rem;
+  color: #fff; /* White text */
+  margin: 0;
+}
+
+/* Position p just below h2 with reduced margin */
+.gallery-item p {
+  bottom: 20px; /* Place description near the very bottom */
+  font-size: 1rem;
+  color: #fff; /* White text */
+  margin: 0;
+  padding: 0 10px; /* Add padding for better readability */
+}
+
+/* Show title and description on hover */
+.gallery-item:hover h2,
+.gallery-item:hover p {
+  opacity: 1; /* Make text visible */
+  visibility: visible; /* Allow interaction */
+  transform: translateY(0); /* Move text to original position */
+}
+
+/* Change background to black and add white box shadow on hover */
+.gallery-item:hover {
+  background-color: black; /* Make the background black on hover */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.6); /* White box shadow on hover */
+}
+
+
+
+
+
+.member-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.member-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.member-table th,
+.member-table td {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 10px;
+}
+
+.member-table th {
+  background-color:gray;
+  color: white;
+  font-weight: bold;
+}
+
+.member-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.member-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.member-table td {
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 600px) {
+  .member-table th,
+  .member-table td {
+    font-size: 0.8rem;
+    padding: 8px;
   }
-  
+}
