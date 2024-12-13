@@ -25,13 +25,26 @@ class Gallery(models.Model):
         return self.name
 
 
+from django.db import models
+
 class GalleryItem(models.Model):
-    gallery = models.ForeignKey(Gallery, related_name='items', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='gallery_items/')
-    caption = models.CharField(max_length=200, blank=True)
+    IMAGE = 'image'
+    VIDEO = 'video'
+
+    MEDIA_TYPE_CHOICES = [
+        (IMAGE, 'Image'),
+        (VIDEO, 'Video'),
+    ]
+
+    gallery = models.ForeignKey('Gallery', related_name='items', on_delete=models.CASCADE)
+    media_type = models.CharField(max_length=10, choices=MEDIA_TYPE_CHOICES, default=IMAGE)
+    image = models.ImageField(upload_to='gallery/images/', null=True, blank=True)
+    video = models.FileField(upload_to='gallery/videos/', null=True, blank=True)
+    caption = models.TextField(blank=True)
 
     def __str__(self):
-        return f"{self.gallery.name} - {self.caption}"
+        return f"{self.media_type}: {self.caption}"
+
 
 
 class FormSubmission(models.Model):
@@ -69,6 +82,18 @@ class Member(models.Model):
     serial_number = models.IntegerField()
     membership_number = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+from django.db import models
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name

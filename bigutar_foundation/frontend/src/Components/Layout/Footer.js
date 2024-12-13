@@ -7,14 +7,13 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const Footer = () => {
   return (
-
-    <footer className="footer--container">
+    <footer className="footer--container " id='contact'>
    
       <div className="footer--social--icon">
         <ul>
           <li>
             <a
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/bdfn123"
               className="navbar--content"
               target="_blank"
               rel="noreferrer"
@@ -119,9 +118,9 @@ const Footer = () => {
     <hr className="divider" />
       <p className="footer--content">Created by @ Binod Dhamala</p>
   </footer>
+ 
   )
 }
-
 export default Footer
 /*import React from "react";
 import InstagramIcon from "@mui/icons-material/Instagram";

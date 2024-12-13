@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../Styles/Gallery.css';
 import Layout from '../Components/Layout/Layout';
-import "../Styles/Gallery.css"
 
 const Gallery = () => {
   const [galleries, setGalleries] = useState([]);
@@ -21,15 +21,21 @@ const Gallery = () => {
 
   return (
     <Layout>
-      <section className='gallery-section1'>
     <div className="gallery-container1">
-      <h3>Gallery</h3>
       {galleries.map((gallery) => (
         <div key={gallery.id} className="gallery1">
+        
           <div className="gallery-grid1">
             {gallery.items.map((item) => (
               <div key={item.id} className="gallery-item1">
-                <img src={`http://localhost:8000${item.image}`} alt={item.caption} />
+                {item.media_type === 'image' ? (
+                  <img src={`http://localhost:8000${item.image}`} alt={item.caption} />
+                ) : (
+                  <video controls>
+                    <source src={`http://localhost:8000${item.video}`} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                )}
                 <p>{item.caption}</p>
               </div>
             ))}
@@ -37,7 +43,6 @@ const Gallery = () => {
         </div>
       ))}
     </div>
-    </section>
     </Layout>
   );
 };

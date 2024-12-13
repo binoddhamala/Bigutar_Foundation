@@ -192,7 +192,7 @@ const Member = () => {
         <form onSubmit={handleSubmit} className="form">
           
           {/* Personal Details Section */}
-          <fieldset className="section">
+          <div className='section'>
             <legend>Personal Details</legend>
             <input
               type="text"
@@ -204,7 +204,7 @@ const Member = () => {
             />
             {errors.full_name && <span className="error">{errors.full_name}</span>}
 
-            <select name="gender" value={formData.gender} onChange={handleChange} required>
+            <select name="gender"  value={formData.gender} onChange={handleChange}  required>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
@@ -229,6 +229,7 @@ const Member = () => {
             />
             
             <input
+              placeholder="Date of Birth"
               type="date"
               name="date_of_birth"
               value={formData.date_of_birth}
@@ -265,17 +266,17 @@ const Member = () => {
               placeholder="Blood Group"
               required
             />
-          </fieldset>
+        </div>
 
           {/* Permanent Address Section */}
-          <fieldset className="section">
+          <div className="section">
             <legend>Permanent Address</legend>
             <input
               type="text"
               name="permanent_state"
               value={formData.permanent_state}
               onChange={handleChange}
-              placeholder="Permanent State"
+              placeholder="State"
               required
             />
 
@@ -284,7 +285,7 @@ const Member = () => {
               name="permanent_district"
               value={formData.permanent_district}
               onChange={handleChange}
-              placeholder="Permanent District"
+              placeholder="District"
               required
             />
 
@@ -293,7 +294,7 @@ const Member = () => {
               name="permanent_municipality"
               value={formData.permanent_municipality}
               onChange={handleChange}
-              placeholder="Permanent Municipality"
+              placeholder="Municipality"
               required
             />
 
@@ -302,20 +303,20 @@ const Member = () => {
               name="permanent_ward_no"
               value={formData.permanent_ward_no}
               onChange={handleChange}
-              placeholder="Permanent Ward No"
+              placeholder="Ward No"
               required
             />
-          </fieldset>
+          </div>
 
           {/* Temporary Address Section */}
-          <fieldset className="section">
-            <legend>Temporary Address (if applicable)</legend>
+          <div className="section">
+            <legend>Temporary Address</legend>
             <input
               type="text"
               name="temporary_state"
               value={formData.temporary_state}
               onChange={handleChange}
-              placeholder="Temporary State"
+              placeholder=" State"
             />
 
             <input
@@ -323,7 +324,7 @@ const Member = () => {
               name="temporary_district"
               value={formData.temporary_district}
               onChange={handleChange}
-              placeholder="Temporary District"
+              placeholder=" District"
             />
 
             <input
@@ -331,7 +332,7 @@ const Member = () => {
               name="temporary_municipality"
               value={formData.temporary_municipality}
               onChange={handleChange}
-              placeholder="Temporary Municipality"
+              placeholder="Municipality"
             />
 
             <input
@@ -339,9 +340,9 @@ const Member = () => {
               name="temporary_ward_no"
               value={formData.temporary_ward_no}
               onChange={handleChange}
-              placeholder="Temporary Ward No"
+              placeholder="Ward No"
             />
-          </fieldset>
+          </div>
 
           {/* Terms and Conditions Section */}
           <label>

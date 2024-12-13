@@ -44,7 +44,7 @@
   }
   
   /* Image styling: uniform rectangle shape */
-  .gallery-item1 img {
+  .gallery-item1 img,video {
     width: 100%;
     height: 180px; /* Fixed height for rectangle shape */
     object-fit: cover; /* Ensures images fill the container without distortion */

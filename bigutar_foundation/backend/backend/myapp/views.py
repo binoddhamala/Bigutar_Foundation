@@ -95,5 +95,25 @@ class MemberList(APIView):
 
 
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .models import ContactMessage
+from .serializers import ContactMessageSerializer
+
+class ContactMessageView(APIView):
+    def get(self, request):
+        """Handle GET requests to fetch all contact messages."""
+        messages = ContactMessage.objects.all()
+        serializer = ContactMessageSerializer(messages, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        """Handle POST requests to save a new contact message."""
+        serializer = ContactMessageSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'message': 'Message received!'}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 

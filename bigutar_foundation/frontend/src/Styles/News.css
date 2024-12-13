@@ -13,12 +13,14 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px 0;
+    margin: 40px 0;
     padding: 15px;
     width: 90%;
     max-width: 800px;
     background-color: #fff;
     transition: box-shadow 0.3s ease-in-out;
+    align-items: center;
+    
   }
   
   .news-item:hover {

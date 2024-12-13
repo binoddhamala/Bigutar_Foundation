@@ -31,10 +31,14 @@ class FormSubmissionSerializer(serializers.ModelSerializer):
 from rest_framework import serializers
 from .models import Gallery, GalleryItem
 
+from rest_framework import serializers
+from .models import GalleryItem
+
 class GalleryItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = GalleryItem
-        fields = ['id', 'image', 'caption']
+        fields = ['id', 'media_type', 'image', 'video', 'caption']
+
 
 
 class GallerySerializer(serializers.ModelSerializer):
@@ -55,3 +59,10 @@ class MemberSerializer(serializers.ModelSerializer):
 
 
 
+from rest_framework import serializers
+from .models import ContactMessage
+
+class ContactMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactMessage
+        fields = '__all__'

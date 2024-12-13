@@ -51,12 +51,12 @@ from .models import Gallery, GalleryItem
 
 class GalleryItemInline(admin.TabularInline):
     model = GalleryItem
-    extra = 1  # Allows one extra field for adding items inline
+    extra = 1
 
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
     inlines = [GalleryItemInline]
-    list_display = ('name',)
+
 
 
 from django.contrib import admin
@@ -67,3 +67,27 @@ class MemberAdmin(admin.ModelAdmin):
     search_fields = ('name', 'membership_number')
 
 admin.site.register(Member, MemberAdmin)
+
+
+
+
+from django.contrib import admin
+from .models import ContactMessage
+
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'message', 'created_at')  # Columns to display in admin list view
+    list_filter = ('created_at',)  # Add a filter by date
+    search_fields = ('name', 'email', 'message')  # Enable search functionality
+    ordering = ('-created_at',)  # Order by most recent messages
+
+    # Optional: Customize the detailed view
+    fieldsets = (
+        ('Contact Information', {
+            'fields': ('name', 'email')
+        }),
+        ('Message Details', {
+            'fields': ('message', 'created_at')
+        }),
+    )
+    readonly_fields = ('created_at',)  # Make the `created_at` field read-only

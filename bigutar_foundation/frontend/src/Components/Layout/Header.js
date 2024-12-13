@@ -232,10 +232,10 @@ function Header() {
               smooth={true}
               offset={-70}
               duration={500}
-              to="/team"
+              to="/contact"
               className="navbar--content"
             >
-              Team
+              Contact us
             </Link>
           </li>
           <li>
@@ -264,7 +264,7 @@ function Header() {
         to="/becomemember"
         className="btn btn-outline-primary"
       >
-        Join us
+        Membership
       </Link>
     </nav>
   );
